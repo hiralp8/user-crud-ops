@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="container">
+      <table class="table table-bordered border-primary mt-5" *ngIf="Users.length > 0">
+        <thead>
+          <tr>
+            <th scope="col">Sr.No</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th class="text-center" scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of Users; let i = index">
+            <!-- <th scope="row">{{book._id}}</th> -->
+            <th scope="row">{{i + 1}}
+              <img src="http://localhost:8000/api/file/{{user.file}}" alt="{{user.file}}" width="50" height="50">
+            </th>
+            <td>{{user.firstname}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-primary" routerLink="/edit-user/{{user._id}}">Edit User</button> |
+              <button class="btn btn-sm btn-danger" (click)="deleteUser(user._id, i)">Delete User</button> |
+              <button class="btn btn-sm btn-success" routerLink="/view-user/{{user._id}}">View User</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="Users.length == 0">
+        <p>There is nothing to display !</p>
+      </div>
+    </div>
+  </div>

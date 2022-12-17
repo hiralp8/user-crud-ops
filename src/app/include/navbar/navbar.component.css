@@ -1,0 +1,14 @@
+.white-text {
+  color: #000;
+}
+
+.active-link {
+  color: black;
+  font-weight: 500;
+  background-color:cornflowerblue;
+  border-radius: 5px;
+}
+
+.navbar-bg {
+  background-color: #e3f2fd;
+}

@@ -1,0 +1,32 @@
+<div class="row justify-content-center mt-5">
+    <div class="col-md-3">
+      <img *ngIf="userData?.file" src="http://localhost:8000/api/file/{{userData?.file}}" alt="{{userData?.file}}" width="250" height="250">
+    </div>
+    <div class="col-md-5" style="border:3px dotted rgb(180, 180, 224)">
+      <form [formGroup]="updateForm" (ngSubmit)="onUpdate()" enctype="multipart/form-data">
+        <div class="form-group mt-2">
+          <label for="firstname">FirstName</label>
+          <input type="text" class="form-control" formControlName="firstname" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="lastname">LastName</label>
+            <input type="text" class="form-control" formControlName="lastname" required>
+          </div>
+        <div class="form-group mt-2">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" formControlName="email" required>
+        </div>
+        <div class="form-group mt-2">
+          <label for="phone">Phone</label>
+          <input type="text" class="form-control" formControlName="phone" required>
+        </div>
+        <div class="form-group mt-2">
+          <label for="file">ProfileImage</label>
+          <input type="file" class="form-control" (change)="onFileSelect($event)" required>
+        </div>
+        <div class="form-group mt-2 mb-2">
+          <button class="btn btn-primary btn-block">Update User</button>
+        </div>
+      </form>
+    </div>
+  </div>
